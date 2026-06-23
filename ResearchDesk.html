@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)file:///C:/Users/mmrahman/Downloads/ResearchDesk.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="ResearchDesk">
 <title>ResearchDesk</title>
-<link rel="stylesheet" href="./ResearchDesk_files/tabler-icons.min.css">
-<script src="./ResearchDesk_files/pdf.min.js.download"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
@@ -327,84 +327,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
 </head>
 <body>
 
-<div class="toast" id="toast">Paper added ✓</div>
+<div class="toast" id="toast"></div>
 
 <div class="topbar">
   <div class="logo">Research<span>Desk</span></div>
   <div class="navtabs">
-    <button class="navtab" data-v="Dash"><i class="ti ti-layout-dashboard"></i> Dashboard</button>
-    <button class="navtab on" data-v="Library"><i class="ti ti-books"></i> Library</button>
+    <button class="navtab on" data-v="Dash"><i class="ti ti-layout-dashboard"></i> Dashboard</button>
+    <button class="navtab" data-v="Library"><i class="ti ti-books"></i> Library</button>
     <button class="navtab" data-v="Compiled"><i class="ti ti-clipboard-list"></i> Compiled</button>
     <button class="navtab" data-v="Synth"><i class="ti ti-affiliate"></i> Synthesis</button>
     <button class="navtab" data-v="Write"><i class="ti ti-writing"></i> Write</button>
   </div>
   <div class="tsp"></div>
-  <span class="tsv" id="tsv" style="opacity: 0;">Saved</span>
+  <span class="tsv" id="tsv">Saved</span>
   <button class="ibt" id="backupBtn" title="Backup / restore data"><i class="ti ti-database-export"></i></button>
   <button class="ibt" id="exportBtn" title="Export review as text"><i class="ti ti-download"></i></button>
 </div>
 
 <!-- DASHBOARD -->
-<div class="view" id="vDash">
-  <div class="dash-wrap" id="dashWrap">
-    <div class="dash-greeting">Your research at a glance</div>
-    <div class="dash-sub">2 papers in your library · 50% reviewed</div>
-    <div class="stat-grid">
-      <div class="stat-card blue"><div class="stat-num">2</div><div class="stat-label">Total papers</div></div>
-      <div class="stat-card green"><div class="stat-num">1</div><div class="stat-label">Reviewed</div></div>
-      <div class="stat-card yellow"><div class="stat-num">0</div><div class="stat-label">In progress</div></div>
-      <div class="stat-card purple"><div class="stat-num">1</div><div class="stat-label">Quotes saved</div></div>
-      <div class="stat-card blue"><div class="stat-num">1</div><div class="stat-label">Key points</div></div>
-      <div class="stat-card green"><div class="stat-num">0</div><div class="stat-label">Words written</div></div>
-    </div>
-    <div class="dash-row">
-      <div class="dash-panel">
-        <h3><i class="ti ti-progress"></i> Reading progress</h3>
-        <div class="progbar">
-          <div class="progseg" style="width:50%;background:var(--green)"></div>
-          <div class="progseg" style="width:0%;background:var(--yellow)"></div>
-          <div class="progseg" style="width:50%;background:var(--blue-b)"></div>
-        </div>
-        <div class="proglegend">
-          <span><span class="legdot" style="background:var(--green)"></span>Done (1)</span>
-          <span><span class="legdot" style="background:var(--yellow)"></span>Reading (0)</span>
-          <span><span class="legdot" style="background:var(--blue-b)"></span>To read (1)</span>
-        </div>
-      </div>
-      <div class="dash-panel">
-        <h3><i class="ti ti-flame"></i> Priority reading queue</h3>
-        <div class="priority-item" onclick="gotoPaper(&#39;p1782092806968&#39;)">
-            <div class="priority-rank" style="">1</div>
-            <div class="priority-title">Transition rates between amyloid and neurodegeneration biomarker states and to dementia: a population-based, longitudinal cohort study</div>
-            
-          </div>
-      </div>
-    </div>
-    <div class="dash-row">
-      <div class="dash-panel">
-        <h3><i class="ti ti-tags"></i> Topics</h3>
-        <div class="dash-empty">Tag your papers to build a topic map.</div>
-      </div>
-      <div class="dash-panel">
-        <h3><i class="ti ti-bulb"></i> Synthesis snapshot</h3>
-        <div style="font-size:12px;line-height:1.9;color:var(--muted)">
-          <div><b style="color:var(--red)">0</b> research gaps identified</div>
-          <div><b style="color:var(--green)">0</b> points of agreement</div>
-          <div><b style="color:var(--blue)">2</b> themes mapped</div>
-          <div><b style="color:var(--ink)">1</b> review sections drafted</div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:28px;padding-top:18px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--muted)">
-      Developed by <strong style="color:var(--ink);font-weight:600">Md Mushfiqur Rahman</strong> · <a href="https://mushfiq-rony.github.io/" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;font-weight:500">mushfiq-rony.github.io</a>
-    </div></div>
+<div class="view on" id="vDash">
+  <div class="dash-wrap" id="dashWrap"></div>
 </div>
 
 <!-- LIBRARY -->
-<div class="view on" id="vLibrary">
+<div class="view" id="vLibrary">
   <div class="lib-sidebar">
     <div class="lib-sb-head">
-      <h3>Papers <span id="paperCount" style="color:var(--muted);font-weight:400;font-size:11px">(1)</span>
+      <h3>Papers <span id="paperCount" style="color:var(--muted);font-weight:400;font-size:11px"></span>
         <select class="sort-sel" id="sortSel">
           <option value="added">Recently added</option>
           <option value="year">Year (newest)</option>
@@ -421,95 +370,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
       <button class="ftag" data-f="reading">Reading</button>
       <button class="ftag" data-f="done">Done</button>
     </div>
-    <div class="lib-list" id="libList"><button class="add-paper-btn" onclick="openAddPaper()"><i class="ti ti-plus"></i> Add paper</button><div class="pcard on" onclick="selectPaper(&#39;p1782093548676&#39;)">
-      
-      <button class="pcard-del" onclick="event.stopPropagation();delPaper(&#39;p1782093548676&#39;)"><i class="ti ti-trash"></i></button>
-      <div class="pcard-year">2021 · Human-Centric Intelligen</div>
-      <div class="pcard-title">Efficient Prediction of Water Quality Index (WQI) Using Machine Learning Algorithms</div>
-      <div class="pcard-authors">Hassan, M.M.; Hassan, M.M.; Akter, L.; Rahman, M.M.; Zaman, S.; Hasib, K.M.; Jahan, N.; Smrity, R.N.; Farhana, J.; Raihan, M.; Mollick, S.</div>
-      <div class="pcard-tags"></div>
-      <div class="pcard-meta">
-        <span style="color:var(--yellow)"></span><span style="color:var(--border)">★★★★★</span>
-        <span>0q · 0k</span>
-        
-        
-        <span style="margin-left:auto;padding:2px 7px;border-radius:5px;font-weight:500;background:var(--blue-l);color:var(--blue)">To Read</span>
-      </div>
-    </div></div>
+    <div class="lib-list" id="libList"></div>
   </div>
   <div class="lib-detail" id="libDetail">
-    <div class="detail-empty" id="detailEmpty" style="display: none;">
+    <div class="detail-empty" id="detailEmpty">
       <i class="ti ti-article"></i>
       <p>Select a paper to see details, or add a new one to get started.</p>
       <button class="dact pri" onclick="openAddPaper()" style="margin-top:8px"><i class="ti ti-plus"></i> Add paper</button>
     </div>
-    <div id="detailPanel" style="display: flex; flex: 1 1 0%; flex-direction: column; overflow: hidden;">
-    <div class="detail-head">
-      <div class="detail-year">2021 · Human-Centric Intelligent Systems, Vol. 1(3-4), pp. 86</div>
-      <div class="detail-title">Efficient Prediction of Water Quality Index (WQI) Using Machine Learning Algorithms</div>
-      <div class="detail-authors">Hassan, M.M.; Hassan, M.M.; Akter, L.; Rahman, M.M.; Zaman, S.; Hasib, K.M.; Jahan, N.; Smrity, R.N.; Farhana, J.; Raihan, M.; Mollick, S.</div>
-      <div class="detail-tags"></div>
-      <div class="detail-actions">
-        <button class="dact pri" onclick="openAddPaper(&#39;p1782093548676&#39;)"><i class="ti ti-edit"></i> Edit</button>
-        
-        <button class="dact cite" onclick="openCite(&#39;p1782093548676&#39;)"><i class="ti ti-quote"></i> Cite</button>
-        <a href="https://doi.org/10.2991/hcis.k.211203.001" target="_blank" class="dact"><i class="ti ti-external-link"></i> DOI</a>
-        <button class="dact" onclick="delPaper(&#39;p1782093548676&#39;)"><i class="ti ti-trash"></i></button>
-      </div>
-    </div>
-    <div class="detail-body" id="detailBody">
-    <div class="meta-grid">
-      <div class="meta-box"><label>Priority</label>
-        <div class="prio-pills">
-          <div class="prio-pill " onclick="setPrio(&#39;p1782093548676&#39;,&#39;high&#39;)">High</div>
-          <div class="prio-pill " onclick="setPrio(&#39;p1782093548676&#39;,&#39;med&#39;)">Med</div>
-          <div class="prio-pill on-low" onclick="setPrio(&#39;p1782093548676&#39;,&#39;low&#39;)">Low</div>
-        </div>
-      </div>
-      <div class="meta-box"><label>Reading deadline</label>
-        <input type="date" value="" onchange="setDue(&#39;p1782093548676&#39;,this.value)">
-      </div>
-    </div>
-    <div class="section-head">Status &amp; Rating</div>
-    <div class="status-row">
-      <button class="sbadge on-todo" onclick="setStatus(&#39;p1782093548676&#39;,&#39;todo&#39;)">To Read</button>
-      <button class="sbadge " onclick="setStatus(&#39;p1782093548676&#39;,&#39;reading&#39;)">Reading</button>
-      <button class="sbadge " onclick="setStatus(&#39;p1782093548676&#39;,&#39;done&#39;)">Done</button>
-    </div>
-    <div class="rating"><span class="star " onclick="setRating(&#39;p1782093548676&#39;,1)">★</span><span class="star " onclick="setRating(&#39;p1782093548676&#39;,2)">★</span><span class="star " onclick="setRating(&#39;p1782093548676&#39;,3)">★</span><span class="star " onclick="setRating(&#39;p1782093548676&#39;,4)">★</span><span class="star " onclick="setRating(&#39;p1782093548676&#39;,5)">★</span></div>
-    
-    <div class="section-head">My Summary</div>
-    <textarea class="notes-area" id="myNotes" placeholder="Write your own summary or critique of this paper…"></textarea>
-    <div class="section-head">Key Points</div>
-    <div class="kp-list"></div>
-    <div class="add-kp">
-      <input type="text" id="kpInp" placeholder="Add a key finding or argument…">
-      <select id="kpColor"><option value="t-blue">Insight</option><option value="t-green">Method</option><option value="t-red">Limitation</option><option value="t-yellow">Finding</option><option value="t-purple">Theory</option></select>
-      <button onclick="addKp(&#39;p1782093548676&#39;)">Add</button>
-    </div>
-    <div class="section-head">Quotes</div>
-    <div></div>
-    <div class="add-quote">
-      <textarea id="qInp" placeholder="Paste a quote from the paper…"></textarea>
-      <div class="add-quote-row"><input type="text" id="qPage" placeholder="p. 12"><button onclick="addQuote(&#39;p1782093548676&#39;)">Save quote</button></div>
-    </div>
-    <div class="section-head"><i class="ti ti-thumb-up" style="color:var(--green);margin-right:-4px"></i> Strengths</div>
-    <div></div>
-    <div class="add-quote">
-      <textarea id="strInp" placeholder="What does this paper do well? (methodology, novelty, rigor…)" style="min-height:50px"></textarea>
-      <div class="add-quote-row" style="justify-content:flex-end"><button onclick="addStrength(&#39;p1782093548676&#39;)" style="background:var(--green)">Add strength</button></div>
-    </div>
-    <div class="section-head"><i class="ti ti-alert-triangle" style="color:var(--red);margin-right:-4px"></i> Gaps / Weaknesses</div>
-    <div></div>
-    <div class="add-quote">
-      <textarea id="gapInpPaper" placeholder="What&#39;s missing or weak? (limitations, unanswered questions…)" style="min-height:50px"></textarea>
-      <div class="add-quote-row" style="justify-content:flex-end"><button onclick="addPaperGap(&#39;p1782093548676&#39;)" style="background:var(--red)">Add gap</button></div>
-    </div>
-    <div class="section-head">Related Papers</div>
-    <div class="related-list">
-      
-      <button class="add-related-btn" onclick="linkRelated(&#39;p1782093548676&#39;)">+ Link paper</button>
-    </div></div></div>
+    <div id="detailPanel" style="display:none;flex:1;flex-direction:column;overflow:hidden"></div>
   </div>
 </div>
 
@@ -594,7 +463,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
           <input type="text" id="mDoiLookup" placeholder="10.1016/… or https://doi.org/…">
           <button class="doi-btn" id="doiLookupBtn" onclick="lookupDoi()"><i class="ti ti-search"></i> Fetch</button>
         </div>
-        <div class="doi-status ok" id="doiStatus">✓ Metadata fetched</div>
+        <div class="doi-status" id="doiStatus"></div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--muted);font-size:11px">
         <div style="flex:1;height:1px;background:var(--border)"></div>or enter manually<div style="flex:1;height:1px;background:var(--border)"></div>
@@ -614,7 +483,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
       <div class="field"><label>Abstract</label><textarea id="mAbstract" placeholder="Paste abstract here…"></textarea></div>
       <div class="field">
         <label>Attach PDF</label>
-        <div class="pdf-row"><i class="ti ti-file-type-pdf"></i><div class="pdf-row-info" id="pdfRowInfo">No PDF attached</div><button class="pdf-attach-btn" onclick="document.getElementById(&#39;mPdfFile&#39;).click()">Choose PDF</button></div>
+        <div class="pdf-row"><i class="ti ti-file-type-pdf"></i><div class="pdf-row-info" id="pdfRowInfo">No PDF attached</div><button class="pdf-attach-btn" id="pdfChooseBtn" onclick="document.getElementById('mPdfFile').click()">Choose PDF</button><button class="pdf-attach-btn" id="pdfRemoveBtn" onclick="removeModalPdf()" style="display:none;color:var(--red);border-color:#fecaca">Remove</button></div>
       </div>
       <div class="field">
         <label>Tags</label>
@@ -636,7 +505,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
 <!-- CITATION MODAL -->
 <div class="modal-bg" id="citeModal">
   <div class="modal" style="max-width:520px">
-    <div class="modal-head"><h3>Citation</h3><button class="modal-close" onclick="document.getElementById(&#39;citeModal&#39;).classList.remove(&#39;on&#39;)"><i class="ti ti-x"></i></button></div>
+    <div class="modal-head"><h3>Citation</h3><button class="modal-close" onclick="document.getElementById('citeModal').classList.remove('on')"><i class="ti ti-x"></i></button></div>
     <div class="modal-body">
       <div class="cite-tabs">
         <button class="cite-tab on" data-c="apa">APA</button>
@@ -657,15 +526,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
   <div style="display:flex;flex-direction:column;width:100%;height:100%;background:var(--ink)">
     <div style="height:48px;background:#111;display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0">
       <span style="color:#fff;font-size:13px;font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" id="pdfViewerTitle"></span>
-      <button id="pvLineBtn" onclick="setPvMode(&#39;line&#39;)" title="Line highlight — drag across text" style="width:30px;height:28px;border:1px solid #555;border-radius:6px;background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center"><i class="ti ti-highlight"></i></button>
-      <button id="pvBoxBtn" onclick="setPvMode(&#39;box&#39;)" title="Box highlight — drag a rectangle" style="width:30px;height:28px;border:1px solid #555;border-radius:6px;background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center"><i class="ti ti-square-dashed"></i></button>
-      <button id="pvEraseBtn" onclick="setPvMode(&#39;erase&#39;)" title="Eraser — tap a highlight to remove it" style="width:30px;height:28px;border:1px solid #555;border-radius:6px;background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center"><i class="ti ti-eraser"></i></button>
+      <button id="pvLineBtn" onclick="setPvMode('line')" title="Line highlight — drag across text" style="width:30px;height:28px;border:1px solid #555;border-radius:6px;background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center"><i class="ti ti-highlight"></i></button>
+      <button id="pvBoxBtn" onclick="setPvMode('box')" title="Box highlight — drag a rectangle" style="width:30px;height:28px;border:1px solid #555;border-radius:6px;background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center"><i class="ti ti-square-dashed"></i></button>
+      <button id="pvEraseBtn" onclick="setPvMode('erase')" title="Eraser — tap a highlight to remove it" style="width:30px;height:28px;border:1px solid #555;border-radius:6px;background:transparent;color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center"><i class="ti ti-eraser"></i></button>
       <div style="display:flex;gap:4px;align-items:center">
-        <div class="pvcdot" data-c="yellow" onclick="setPvColor(&#39;yellow&#39;)" style="width:16px;height:16px;border-radius:50%;background:#FFDC32;cursor:pointer"></div>
-        <div class="pvcdot" data-c="green" onclick="setPvColor(&#39;green&#39;)" style="width:16px;height:16px;border-radius:50%;background:#50C878;cursor:pointer"></div>
-        <div class="pvcdot" data-c="blue" onclick="setPvColor(&#39;blue&#39;)" style="width:16px;height:16px;border-radius:50%;background:#3C96E6;cursor:pointer"></div>
-        <div class="pvcdot" data-c="pink" onclick="setPvColor(&#39;pink&#39;)" style="width:16px;height:16px;border-radius:50%;background:#E6509F;cursor:pointer"></div>
-        <div class="pvcdot" data-c="orange" onclick="setPvColor(&#39;orange&#39;)" style="width:16px;height:16px;border-radius:50%;background:#FF8C32;cursor:pointer"></div>
+        <div class="pvcdot" data-c="yellow" onclick="setPvColor('yellow')" style="width:16px;height:16px;border-radius:50%;background:#FFDC32;cursor:pointer"></div>
+        <div class="pvcdot" data-c="green" onclick="setPvColor('green')" style="width:16px;height:16px;border-radius:50%;background:#50C878;cursor:pointer"></div>
+        <div class="pvcdot" data-c="blue" onclick="setPvColor('blue')" style="width:16px;height:16px;border-radius:50%;background:#3C96E6;cursor:pointer"></div>
+        <div class="pvcdot" data-c="pink" onclick="setPvColor('pink')" style="width:16px;height:16px;border-radius:50%;background:#E6509F;cursor:pointer"></div>
+        <div class="pvcdot" data-c="orange" onclick="setPvColor('orange')" style="width:16px;height:16px;border-radius:50%;background:#FF8C32;cursor:pointer"></div>
       </div>
       <div style="width:0.5px;height:20px;background:#444"></div>
       <span style="color:#888;font-size:11px;white-space:nowrap">p.<input type="number" id="pvPgi" value="1" min="1" style="width:36px;height:24px;text-align:center;border:1px solid #444;border-radius:5px;font-size:11px;background:#222;color:#fff;outline:none;margin:0 3px">/<span id="pvPgt">—</span></span>
@@ -678,15 +547,47 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
 </div>
 
 <input type="file" id="mPdfFile" accept=".pdf" style="display:none">
+<input type="file" id="quickPdfFile" accept=".pdf" style="display:none">
+<input type="file" id="suppFile" accept=".pdf" style="display:none">
 <input type="file" id="restoreFile" accept=".json" style="display:none">
 
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 let D={papers:[],gaps:[],agrees:[],themes:[],sections:[],sectionContents:{}};
-let curPaper=null,curSection=null,editingId=null,mTags=[],mPdfB64=null,mPdfName=null;
+let curPaper=null,curSection=null,editingId=null,mTags=[],mPdfBlob=null,mPdfName=null,mPdfRemove=false;
 
-function save(){try{localStorage.setItem('rd_v2',JSON.stringify(D));showSaved();}catch(e){if(e.name==='QuotaExceededError')toast('Storage full — too many PDFs. Export a backup.');}}
+/* ══ IndexedDB for PDF blobs (large storage: hundreds of MB–GB) ══ */
+let _idb=null;
+function idbOpen(){
+  return new Promise((resolve,reject)=>{
+    if(_idb)return resolve(_idb);
+    const req=indexedDB.open('researchdesk_pdfs',1);
+    req.onupgradeneeded=e=>{const db=e.target.result;if(!db.objectStoreNames.contains('pdfs'))db.createObjectStore('pdfs');};
+    req.onsuccess=e=>{_idb=e.target.result;resolve(_idb);};
+    req.onerror=e=>reject(e.target.error);
+  });
+}
+async function idbSet(key,blob){const db=await idbOpen();return new Promise((res,rej)=>{const tx=db.transaction('pdfs','readwrite');tx.objectStore('pdfs').put(blob,key);tx.oncomplete=()=>res();tx.onerror=e=>rej(e.target.error);});}
+async function idbGet(key){const db=await idbOpen();return new Promise((res,rej)=>{const tx=db.transaction('pdfs','readonly');const r=tx.objectStore('pdfs').get(key);r.onsuccess=()=>res(r.result||null);r.onerror=e=>rej(e.target.error);});}
+async function idbDel(key){const db=await idbOpen();return new Promise((res,rej)=>{const tx=db.transaction('pdfs','readwrite');tx.objectStore('pdfs').delete(key);tx.oncomplete=()=>res();tx.onerror=e=>rej(e.target.error);});}
+async function idbKeys(){const db=await idbOpen();return new Promise((res,rej)=>{const tx=db.transaction('pdfs','readonly');const r=tx.objectStore('pdfs').getAllKeys();r.onsuccess=()=>res(r.result||[]);r.onerror=e=>rej(e.target.error);});}
+// migrate any legacy base64 PDFs (from older localStorage version) into IndexedDB
+async function migrateLegacyPdfs(){
+  let migrated=0;
+  for(const p of D.papers){
+    if(p.pdfB64){
+      try{
+        const bytes=Uint8Array.from(atob(p.pdfB64),c=>c.charCodeAt(0));
+        await idbSet(p.id,new Blob([bytes],{type:'application/pdf'}));
+        p.hasPdf=true;delete p.pdfB64;migrated++;
+      }catch(e){}
+    }
+  }
+  if(migrated){save();toast(migrated+' PDF'+(migrated>1?'s':'')+' upgraded to large storage');}
+}
+
+function save(){try{localStorage.setItem('rd_v2',JSON.stringify(D));showSaved();}catch(e){if(e.name==='QuotaExceededError')toast('Notes storage full — export a backup.');}}
 function load(){try{const s=localStorage.getItem('rd_v2');if(s)D=JSON.parse(s);}catch(e){}}
 function showSaved(){const el=document.getElementById('tsv');el.style.opacity='1';setTimeout(()=>el.style.opacity='0',1600);}
 function toast(m,d=2200){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),d);}
@@ -911,7 +812,7 @@ function renderLib(){
       <div class="pcard-meta">
         <span style="color:var(--yellow)">${'★'.repeat(p.rating||0)}</span><span style="color:var(--border)">${'★'.repeat(5-(p.rating||0))}</span>
         <span>${(p.quotes||[]).length}q · ${(p.keyPoints||[]).length}k</span>
-        ${p.pdfB64?'<span style="color:var(--purple);font-weight:600">PDF</span>':''}
+        ${p.hasPdf?'<span style="color:var(--purple);font-weight:600">PDF</span>':''}
         ${p.due?`<span style="color:${p.due<new Date().toISOString().slice(0,10)&&p.status!=='done'?'var(--red)':'var(--muted)'}"><i class="ti ti-calendar" style="font-size:11px"></i> ${fmtDate(p.due)}</span>`:''}
         <span style="margin-left:auto;padding:2px 7px;border-radius:5px;font-weight:500;${p.status==='done'?'background:var(--green-l);color:var(--green)':p.status==='reading'?'background:var(--yellow-l);color:var(--yellow)':'background:var(--blue-l);color:var(--blue)'}">${p.status==='done'?'Done':p.status==='reading'?'Reading':'To Read'}</span>
       </div>
@@ -932,7 +833,8 @@ function renderDetail(){
       <div class="detail-tags">${(p.tags||[]).map(t=>`<span class="tag-m ${tagColor(t)}">${esc(t)}</span>`).join('')}</div>
       <div class="detail-actions">
         <button class="dact pri" onclick="openAddPaper('${p.id}')"><i class="ti ti-edit"></i> Edit</button>
-        ${p.pdfB64?`<button class="dact pdf" onclick="openPdfViewer('${p.id}')"><i class="ti ti-file-type-pdf"></i> PDF</button>`:''}
+        ${p.hasPdf?`<button class="dact pdf" onclick="openPdfViewer('${p.id}')"><i class="ti ti-file-type-pdf"></i> PDF</button>`:''}
+        <button class="dact" onclick="quickPdf('${p.id}')"><i class="ti ti-${p.hasPdf?'replace':'paperclip'}"></i> ${p.hasPdf?'Replace PDF':'Attach PDF'}</button>
         <button class="dact cite" onclick="openCite('${p.id}')"><i class="ti ti-quote"></i> Cite</button>
         ${p.doi?`<a href="https://doi.org/${esc(p.doi)}" target="_blank" class="dact"><i class="ti ti-external-link"></i> DOI</a>`:''}
         <button class="dact" onclick="delPaper('${p.id}')"><i class="ti ti-trash"></i></button>
@@ -992,6 +894,9 @@ function renderDetailBody(){
       <textarea id="gapInpPaper" placeholder="What's missing or weak? (limitations, unanswered questions…)" style="min-height:50px"></textarea>
       <div class="add-quote-row" style="justify-content:flex-end"><button onclick="addPaperGap('${p.id}')" style="background:var(--red)">Add gap</button></div>
     </div>
+    <div class="section-head"><i class="ti ti-files" style="color:var(--purple);margin-right:-4px"></i> Supplementary Files</div>
+    <div id="suppList">${renderSupps(p)}</div>
+    <div style="margin-bottom:20px"><button class="dact" onclick="addSupp('${p.id}')" style="font-size:11px;padding:7px 12px"><i class="ti ti-plus"></i> Add supplementary PDF</button></div>
     <div class="section-head">Related Papers</div>
     <div class="related-list">
       ${(p.related||[]).map(rid=>{const r=D.papers.find(x=>x.id===rid);return r?`<span class="related-chip" onclick="selectPaper('${rid}')">${esc(r.title.substring(0,28))}${r.title.length>28?'…':''} <span class="rx" onclick="event.stopPropagation();unlinkRelated('${p.id}','${rid}')">×</span></span>`:'';}).join('')}
@@ -1014,7 +919,47 @@ function addStrength(id){const p=D.papers.find(x=>x.id===id);if(!p)return;const 
 function delStrength(id,i){const p=D.papers.find(x=>x.id===id);if(p&&confirm('Remove this strength?')){p.strengths.splice(i,1);save();renderDetailBody();}}
 function addPaperGap(id){const p=D.papers.find(x=>x.id===id);if(!p)return;const t=document.getElementById('gapInpPaper').value.trim();if(!t)return;if(!p.paperGaps)p.paperGaps=[];p.paperGaps.push(t);save();renderDetailBody();toast('Gap added');}
 function delPaperGap(id,i){const p=D.papers.find(x=>x.id===id);if(p&&confirm('Remove this gap?')){p.paperGaps.splice(i,1);save();renderDetailBody();}}
-function delPaper(id){if(!confirm('Delete this paper and all its notes?'))return;D.papers=D.papers.filter(p=>p.id!==id);D.papers.forEach(p=>{if(p.related)p.related=p.related.filter(r=>r!==id);});if(curPaper&&curPaper.id===id)curPaper=null;save();renderLib();renderDetail();toast('Paper deleted');}
+function delPaper(id){if(!confirm('Delete this paper and all its notes?'))return;const pp=D.papers.find(x=>x.id===id);idbDel(id).catch(()=>{});if(pp&&pp.supps)pp.supps.forEach(s=>idbDel(id+'__supp__'+s.id).catch(()=>{}));D.papers=D.papers.filter(p=>p.id!==id);D.papers.forEach(p=>{if(p.related)p.related=p.related.filter(r=>r!==id);});if(curPaper&&curPaper.id===id)curPaper=null;save();renderLib();renderDetail();toast('Paper deleted');}
+
+/* ══ SUPPLEMENTARY FILES ══ */
+function renderSupps(p){
+  if(!(p.supps||[]).length)return '<div style="font-size:11px;color:var(--muted);font-style:italic;margin-bottom:8px">No supplementary files yet</div>';
+  return '<div style="margin-bottom:8px">'+p.supps.map(s=>`<div style="display:flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid var(--border);border-radius:8px;margin-bottom:5px;background:#fafaf8"><i class="ti ti-file-type-pdf" style="color:var(--purple);font-size:17px"></i><span style="flex:1;font-size:12px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(s.name)}</span><button class="dact" onclick="viewSupp('${p.id}','${s.id}')" style="font-size:10px;padding:4px 9px"><i class="ti ti-eye"></i> View</button><button class="adel" onclick="delSupp('${p.id}','${s.id}')" style="font-size:14px"><i class="ti ti-x"></i></button></div>`).join('')+'</div>';
+}
+let suppTargetId=null;
+function addSupp(id){suppTargetId=id;document.getElementById('suppFile').click();}
+document.getElementById('suppFile').addEventListener('change',async e=>{
+  const f=e.target.files[0];if(!f||!suppTargetId)return;
+  const p=D.papers.find(x=>x.id===suppTargetId);if(!p){e.target.value='';return;}
+  const ab=await f.arrayBuffer();
+  const sid='s'+Date.now();
+  try{
+    await idbSet(suppTargetId+'__supp__'+sid,new Blob([ab],{type:'application/pdf'}));
+    if(!p.supps)p.supps=[];
+    p.supps.push({id:sid,name:f.name.replace(/\.pdf$/i,'')});
+    save();renderDetailBody();renderLib();toast('Supplementary file added ✓');
+  }catch(err){toast('Could not store file');}
+  e.target.value='';suppTargetId=null;
+});
+function delSupp(pid,sid){
+  if(!confirm('Remove this supplementary file?'))return;
+  const p=D.papers.find(x=>x.id===pid);if(!p)return;
+  idbDel(pid+'__supp__'+sid).catch(()=>{});
+  p.supps=(p.supps||[]).filter(s=>s.id!==sid);
+  save();renderDetailBody();renderLib();toast('Supplementary file removed');
+}
+async function viewSupp(pid,sid){
+  const p=D.papers.find(x=>x.id===pid);if(!p)return;
+  const supp=(p.supps||[]).find(s=>s.id===sid);
+  let blob;try{blob=await idbGet(pid+'__supp__'+sid);}catch(e){}
+  if(!blob){toast('File could not be loaded');return;}
+  pvPaperId=null;pvSuppKey=pid+'__supp__'+sid;pvScale=1.4;pvMode='off';
+  document.getElementById('pdfModal').classList.add('on');
+  document.getElementById('pdfViewerTitle').textContent=(supp?supp.name:'Supplementary')+' — (supplementary, no highlighting)';
+  updatePvBtns();
+  pvBytes=new Uint8Array(await blob.arrayBuffer());
+  await pvRender(pvBytes);
+}
 
 function linkRelated(id){
   const p=D.papers.find(x=>x.id===id);if(!p)return;
@@ -1041,12 +986,37 @@ document.querySelectorAll('.ftag').forEach(b=>b.addEventListener('click',()=>{do
 /* PDF pick */
 document.getElementById('mPdfFile').addEventListener('change',async e=>{
   const f=e.target.files[0];if(!f)return;
-  if(f.size>8*1024*1024){toast('PDF is large (>8MB) — may hit storage limits');}
-  mPdfName=f.name;
-  document.getElementById('pdfRowInfo').innerHTML=`<strong>${esc(f.name)}</strong> (${(f.size/1024/1024).toFixed(1)} MB)`;
+  mPdfName=f.name;mPdfRemove=false;
+  document.getElementById('pdfRowInfo').innerHTML=`<strong>${esc(f.name)}</strong> (${(f.size/1024/1024).toFixed(1)} MB) — ready`;
   const ab=await f.arrayBuffer();
-  mPdfB64=btoa(Array.from(new Uint8Array(ab),b=>String.fromCharCode(b)).join(''));
-  e.target.value='';toast('PDF ready');
+  mPdfBlob=new Blob([ab],{type:'application/pdf'});
+  document.getElementById('pdfChooseBtn').textContent='Change PDF';
+  document.getElementById('pdfRemoveBtn').style.display='';
+  e.target.value='';toast('PDF ready — will replace on save');
+});
+function removeModalPdf(){
+  mPdfBlob=null;mPdfName=null;mPdfRemove=true;
+  document.getElementById('pdfRowInfo').innerHTML='PDF will be removed on save';
+  document.getElementById('pdfChooseBtn').textContent='Choose PDF';
+  document.getElementById('pdfRemoveBtn').style.display='none';
+}
+
+// Quick attach/replace PDF straight from the paper detail (no full edit modal)
+let quickPdfTargetId=null;
+function quickPdf(id){quickPdfTargetId=id;document.getElementById('quickPdfFile').click();}
+document.getElementById('quickPdfFile').addEventListener('change',async e=>{
+  const f=e.target.files[0];if(!f||!quickPdfTargetId)return;
+  const p=D.papers.find(x=>x.id===quickPdfTargetId);if(!p){e.target.value='';return;}
+  const ab=await f.arrayBuffer();
+  const blob=new Blob([ab],{type:'application/pdf'});
+  try{
+    await idbSet(p.id,blob);
+    const wasReplace=p.hasPdf;
+    p.hasPdf=true;p.pdfName=f.name;
+    save();renderLib();renderDetail();
+    toast(wasReplace?'PDF replaced ✓':'PDF attached ✓');
+  }catch(err){toast('Could not store PDF');}
+  e.target.value='';quickPdfTargetId=null;
 });
 
 /* DOI lookup */
@@ -1078,7 +1048,7 @@ async function lookupDoi(){
 document.getElementById('mDoiLookup').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();lookupDoi();}});
 
 function openAddPaper(id=null){
-  editingId=id;mTags=[];mPdfB64=null;mPdfName=null;
+  editingId=id;mTags=[];mPdfBlob=null;mPdfName=null;mPdfRemove=false;
   const p=id?D.papers.find(x=>x.id===id):null;
   document.getElementById('modalTitle').textContent=id?'Edit paper':'Add paper';
   ['mDoiLookup','mTitle','mAuthors','mYear','mJournal','mVolume','mIssue','mPages','mDoi','mAbstract'].forEach(f=>document.getElementById(f).value='');
@@ -1092,7 +1062,10 @@ function openAddPaper(id=null){
   }
   document.getElementById('mStatus').value=p?.status||'todo';
   document.getElementById('mPriority').value=p?.priority||'low';
-  document.getElementById('pdfRowInfo').innerHTML=p?.pdfName?`<strong>${esc(p.pdfName)}</strong> — attached`:'No PDF attached';
+  const hasExisting=p&&p.hasPdf;
+  document.getElementById('pdfRowInfo').innerHTML=hasExisting?`<strong>${esc(p.pdfName||'PDF')}</strong> — attached`:'No PDF attached';
+  document.getElementById('pdfChooseBtn').textContent=hasExisting?'Replace PDF':'Choose PDF';
+  document.getElementById('pdfRemoveBtn').style.display=hasExisting?'':'none';
   mTags=p?.tags?[...p.tags]:[];renderModalTags();
   document.getElementById('addModal').classList.add('on');
   setTimeout(()=>document.getElementById(id?'mTitle':'mDoiLookup').focus(),100);
@@ -1111,12 +1084,18 @@ function savePaper(){
     doi:document.getElementById('mDoi').value.trim(),abstract:document.getElementById('mAbstract').value.trim(),
     status:document.getElementById('mStatus').value,priority:document.getElementById('mPriority').value,tags:mTags
   };
+  let targetId;
   if(editingId){
-    const p=D.papers.find(x=>x.id===editingId);if(p){Object.assign(p,fields);if(mPdfB64){p.pdfB64=mPdfB64;p.pdfName=mPdfName;}}
+    const p=D.papers.find(x=>x.id===editingId);if(p){Object.assign(p,fields);if(mPdfBlob){p.hasPdf=true;p.pdfName=mPdfName;}else if(mPdfRemove){p.hasPdf=false;p.pdfName='';}targetId=p.id;}
   }else{
     const paper={id:'p'+Date.now(),...fields,rating:0,keyPoints:[],quotes:[],related:[],myNotes:'',added:Date.now()};
-    if(mPdfB64){paper.pdfB64=mPdfB64;paper.pdfName=mPdfName;}
-    D.papers.push(paper);curPaper=paper;
+    if(mPdfBlob){paper.hasPdf=true;paper.pdfName=mPdfName;}
+    D.papers.push(paper);curPaper=paper;targetId=paper.id;
+  }
+  if(mPdfBlob&&targetId){
+    idbSet(targetId,mPdfBlob).then(()=>{save();}).catch(()=>toast('PDF too large to store'));
+  }else if(mPdfRemove&&targetId){
+    idbDel(targetId).catch(()=>{});
   }
   save();closeModal();renderLib();renderDetail();toast(editingId?'Paper updated':'Paper added ✓');
 }
@@ -1168,16 +1147,15 @@ document.getElementById('toggleIqBtn').addEventListener('click',()=>{const p=doc
 document.getElementById('insertQuoteBtn').addEventListener('click',()=>{document.getElementById('iqPanel').style.display='block';renderIqPanel();});
 
 /* ══ PDF VIEWER + HIGHLIGHTING ══ */
-let pvPdf=null,pvScale=1.4,pvPages=0,pvPaperId=null,pvHlColor='yellow',pvMode='off';
+let pvPdf=null,pvScale=1.4,pvPages=0,pvPaperId=null,pvHlColor='yellow',pvMode='off',pvBytes=null,pvSuppKey=null;
 const PVHL={yellow:'rgba(255,225,60,0.28)',green:'rgba(90,210,130,0.24)',blue:'rgba(70,160,235,0.24)',pink:'rgba(235,95,160,0.24)',orange:'rgba(255,150,60,0.26)'};
 const PVHB={yellow:'#c8a800',green:'#1e7a3a',blue:'#0f4fa3',pink:'#9a1e55',orange:'#b05a0a'};
-async function openPdfViewer(id){const p=D.papers.find(x=>x.id===id);if(!p?.pdfB64){toast('No PDF attached');return;}pvPaperId=id;pvScale=1.4;pvMode='off';document.getElementById('pdfModal').classList.add('on');document.getElementById('pdfViewerTitle').textContent=p.title.substring(0,60);updatePvBtns();await pvRender(p.pdfB64);}
+async function openPdfViewer(id){const p=D.papers.find(x=>x.id===id);if(!p?.hasPdf){toast('No PDF attached');return;}pvPaperId=id;pvSuppKey=null;pvScale=1.4;pvMode='off';document.getElementById('pdfModal').classList.add('on');document.getElementById('pdfViewerTitle').textContent=p.title.substring(0,60);updatePvBtns();let blob;try{blob=await idbGet(id);}catch(e){}if(!blob){toast('PDF could not be loaded');closePdfViewer();return;}pvBytes=new Uint8Array(await blob.arrayBuffer());await pvRender(pvBytes);}
 
-async function pvRender(b64){
+async function pvRender(bytes){
   const scroll=document.getElementById('pvScroll');
   scroll.innerHTML='<div style="color:#888;padding:40px;font-size:13px">Loading…</div>';
-  const bytes=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
-  pvPdf=await pdfjsLib.getDocument({data:bytes}).promise;
+  pvPdf=await pdfjsLib.getDocument({data:bytes.slice(0)}).promise;
   pvPages=pvPdf.numPages;
   document.getElementById('pvPgt').textContent=pvPages;
   document.getElementById('pvPgi').max=pvPages;document.getElementById('pvPgi').value=1;
@@ -1292,6 +1270,7 @@ function setupPvSelect(tl,w,pn){
     const rects=clientRects.map(r=>({x:(r.left-cr.left)/cr.width,y:(r.top-cr.top)/cr.height,w:r.width/cr.width,h:r.height/cr.height}));
     const text=sel.toString().trim();
     const p=D.papers.find(x=>x.id===pvPaperId);
+    if(!p)return;
     if(!p.pdfHls)p.pdfHls=[];
     p.pdfHls.push({id:Date.now(),page:pn,kind:'line',color:pvHlColor,rects,text:text.substring(0,300),comment:''});
     save();sel.removeAllRanges();drawPvHls(pn,w);
@@ -1306,7 +1285,7 @@ function setupPvBox(ov,dr,w,pn){
   function xy(e){const t=e.touches?e.touches[0]||e.changedTouches[0]:e;const cr=w.getBoundingClientRect();return{x:t.clientX-cr.left,y:t.clientY-cr.top};}
   function start(e){e.preventDefault();const p=xy(e);sx=p.x;sy=p.y;drag=true;dr.style.left=sx+'px';dr.style.top=sy+'px';dr.style.width='0px';dr.style.height='0px';dr.style.display='block';}
   function move(e){if(!drag)return;e.preventDefault();const p=xy(e);const l=Math.min(sx,p.x),t=Math.min(sy,p.y);dr.style.left=l+'px';dr.style.top=t+'px';dr.style.width=Math.abs(p.x-sx)+'px';dr.style.height=Math.abs(p.y-sy)+'px';}
-  function end(e){if(!drag)return;drag=false;const p=xy(e);const l=Math.min(sx,p.x),t=Math.min(sy,p.y),ww=Math.abs(p.x-sx),hh=Math.abs(p.y-sy);dr.style.display='none';if(ww<8||hh<8)return;const rect=w.getBoundingClientRect();const pp=D.papers.find(x=>x.id===pvPaperId);if(!pp.pdfHls)pp.pdfHls=[];pp.pdfHls.push({id:Date.now(),page:pn,kind:'box',color:pvHlColor,rects:[{x:l/rect.width,y:t/rect.height,w:ww/rect.width,h:hh/rect.height}],comment:''});save();drawPvHls(pn,w);}
+  function end(e){if(!drag)return;drag=false;const p=xy(e);const l=Math.min(sx,p.x),t=Math.min(sy,p.y),ww=Math.abs(p.x-sx),hh=Math.abs(p.y-sy);dr.style.display='none';if(ww<8||hh<8)return;const rect=w.getBoundingClientRect();const pp=D.papers.find(x=>x.id===pvPaperId);if(!pp)return;if(!pp.pdfHls)pp.pdfHls=[];pp.pdfHls.push({id:Date.now(),page:pn,kind:'box',color:pvHlColor,rects:[{x:l/rect.width,y:t/rect.height,w:ww/rect.width,h:hh/rect.height}],comment:''});save();drawPvHls(pn,w);}
   ov.addEventListener('mousedown',start);ov.addEventListener('mousemove',move);ov.addEventListener('mouseup',end);
   ov.addEventListener('touchstart',start,{passive:false});ov.addEventListener('touchmove',move,{passive:false});ov.addEventListener('touchend',end,{passive:false});
 }
@@ -1326,6 +1305,11 @@ function setPvMode(m){
 function setPvColor(c){pvHlColor=c;if(pvMode==='off'||pvMode==='erase')pvMode='line';document.querySelectorAll('#pvScroll [data-page]').forEach(applyModeToPage);document.querySelectorAll('#pvScroll [data-page]').forEach(redrawPage);updatePvBtns();}
 function updatePvBtns(){
   const lb=document.getElementById('pvLineBtn'),bb=document.getElementById('pvBoxBtn'),eb=document.getElementById('pvEraseBtn');
+  const isSupp=!!pvSuppKey;
+  // hide highlight controls when viewing a supplementary file (highlights belong to the main paper)
+  [lb,bb,eb].forEach(b=>{if(b)b.style.display=isSupp?'none':'flex';});
+  document.querySelectorAll('.pvcdot').forEach(d=>{d.style.display=isSupp?'none':'block';});
+  if(isSupp)return;
   if(lb){lb.style.background=pvMode==='line'?PVHB[pvHlColor]:'transparent';lb.style.borderColor=pvMode==='line'?PVHB[pvHlColor]:'#555';}
   if(bb){bb.style.background=pvMode==='box'?PVHB[pvHlColor]:'transparent';bb.style.borderColor=pvMode==='box'?PVHB[pvHlColor]:'#555';}
   if(eb){eb.style.background=pvMode==='erase'?'#DC2626':'transparent';eb.style.borderColor=pvMode==='erase'?'#DC2626':'#555';}
@@ -1333,12 +1317,53 @@ function updatePvBtns(){
 }
 document.getElementById('pvScroll').addEventListener('scroll',()=>{document.querySelectorAll('#pvScroll [data-page]').forEach(w=>{const r=w.getBoundingClientRect();if(r.top<=window.innerHeight*.6&&r.bottom>0)document.getElementById('pvPgi').value=w.dataset.page;});});
 document.getElementById('pvPgi').addEventListener('change',e=>{const pg=Math.max(1,Math.min(parseInt(e.target.value)||1,pvPages));e.target.value=pg;document.querySelector(`#pvScroll [data-page="${pg}"]`)?.scrollIntoView({behavior:'smooth',block:'start'});});
-async function pvZoom(d){pvScale=Math.max(.5,Math.min(3,pvScale+d));if(!pvPdf||!pvPaperId)return;const p=D.papers.find(x=>x.id===pvPaperId);if(p?.pdfB64)await pvRender(p.pdfB64);}
-function closePdfViewer(){document.getElementById('pdfModal').classList.remove('on');pvPdf=null;pvPaperId=null;pvMode='off';document.getElementById('pvScroll').innerHTML='';renderDetail();}
+async function pvZoom(d){pvScale=Math.max(.5,Math.min(3,pvScale+d));if(!pvPdf||!pvBytes)return;await pvRender(pvBytes);}
+function closePdfViewer(){document.getElementById('pdfModal').classList.remove('on');pvPdf=null;pvPaperId=null;pvBytes=null;pvSuppKey=null;pvMode='off';document.getElementById('pvScroll').innerHTML='';renderDetail();}
 
-/* ══ BACKUP / RESTORE ══ */
-document.getElementById('backupBtn').addEventListener('click',()=>{const choice=confirm('OK = Download backup file\nCancel = Restore from a backup file');if(choice){const blob=new Blob([JSON.stringify(D)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`researchdesk-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);toast('Backup downloaded ✓');}else{document.getElementById('restoreFile').click();}});
-document.getElementById('restoreFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{try{const data=JSON.parse(ev.target.result);if(!confirm('This will replace all current data. Continue?'))return;D=data;save();renderLib();renderDetail();renderDash();toast('Data restored ✓');}catch(err){toast('Invalid backup file');}};r.readAsText(f);e.target.value='';});
+/* ══ BACKUP / RESTORE (includes PDFs from IndexedDB) ══ */
+document.getElementById('backupBtn').addEventListener('click',()=>{
+  const choice=confirm('OK = Download backup file (includes PDFs)\nCancel = Restore from a backup file');
+  if(choice){doBackup();}else{document.getElementById('restoreFile').click();}
+});
+async function doBackup(){
+  toast('Preparing backup…');
+  const pdfs={};
+  // back up every stored blob (main PDFs + supplementary files)
+  try{
+    const keys=await idbKeys();
+    for(const k of keys){
+      try{const blob=await idbGet(k);if(blob){const ab=await blob.arrayBuffer();pdfs[k]=btoa(Array.from(new Uint8Array(ab),b=>String.fromCharCode(b)).join(''));}}catch(e){}
+    }
+  }catch(e){}
+  const payload={meta:D,pdfs,_v:4};
+  const blob=new Blob([JSON.stringify(payload)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');
+  a.href=url;a.download=`researchdesk-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();
+  URL.revokeObjectURL(url);toast('Backup downloaded ✓ (with all PDFs)');
+}
+document.getElementById('restoreFile').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=async ev=>{
+    try{
+      const parsed=JSON.parse(ev.target.result);
+      if(!confirm('This will replace all current data. Continue?'))return;
+      // support both new format {meta,pdfs} and legacy raw D
+      if(parsed.meta&&parsed.pdfs!==undefined){
+        D=parsed.meta;
+        // clear old IDB then restore PDFs
+        const keys=await idbKeys();for(const k of keys)await idbDel(k);
+        for(const [pid,b64] of Object.entries(parsed.pdfs)){
+          try{const bytes=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));await idbSet(pid,new Blob([bytes],{type:'application/pdf'}));}catch(e){}
+        }
+      }else{
+        D=parsed;await migrateLegacyPdfs();
+      }
+      save();renderLib();renderDetail();renderDash();toast('Data restored ✓');
+    }catch(err){toast('Invalid backup file');}
+  };
+  r.readAsText(f);e.target.value='';
+});
 
 /* ══ EXPORT ══ */
 document.getElementById('exportBtn').addEventListener('click',()=>{let out='RESEARCHDESK — LITERATURE REVIEW EXPORT\n'+'='.repeat(44)+'\n\n';out+=`${D.papers.length} papers · ${Object.values(D.sectionContents||{}).reduce((s,c)=>s+wc(c),0)} words written\n\n`;out+='ANNOTATED BIBLIOGRAPHY\n'+'─'.repeat(30)+'\n\n';D.papers.forEach(p=>{out+=`▸ ${p.title} (${p.year||'n.d.'})\n  ${p.authors||''}\n`;if(p.journal)out+=`  ${p.journal}${p.volume?', '+p.volume:''}${p.issue?'('+p.issue+')':''}${p.pages?', '+p.pages:''}\n`;out+=`  Status: ${p.status} · Priority: ${p.priority||'low'} · Rating: ${'★'.repeat(p.rating||0)}\n`;if(p.doi)out+=`  DOI: ${p.doi}\n`;if(p.myNotes)out+=`\n  My summary: ${p.myNotes}\n`;if((p.strengths||[]).length){out+=`\n  Strengths:\n`;p.strengths.forEach(s=>out+=`   + ${s}\n`);}if((p.paperGaps||[]).length){out+=`\n  Gaps/Weaknesses:\n`;p.paperGaps.forEach(g=>out+=`   - ${g}\n`);}if((p.keyPoints||[]).length){out+=`\n  Key points:\n`;p.keyPoints.forEach(kp=>out+=`   • [${kpLabel(kp.color)}] ${kp.text}\n`);}if((p.quotes||[]).length){out+=`\n  Quotes:\n`;p.quotes.forEach(q=>out+=`   "${q.text}"${q.page?' (p.'+q.page+')':''}\n`);}out+='\n';});if(D.gaps?.length){out+='\nCROSS-PAPER RESEARCH GAPS\n'+'─'.repeat(25)+'\n';D.gaps.forEach(g=>out+=`• ${g}\n`);}if(D.agrees?.length){out+='\nCROSS-PAPER AGREEMENTS\n'+'─'.repeat(25)+'\n';D.agrees.forEach(a=>out+=`• ${a}\n`);}if(D.sections?.length){out+='\n\nDRAFT SECTIONS\n'+'─'.repeat(30)+'\n\n';D.sections.forEach(s=>{out+=`## ${s.name}\n\n${D.sectionContents[s.id]||''}\n\n`;});}out+='\nREFERENCES (APA)\n'+'─'.repeat(20)+'\n';D.papers.forEach(p=>{out+=`${p.authors||'Unknown'} (${p.year||'n.d.'}). ${p.title}. ${p.journal||''}.${p.doi?' https://doi.org/'+p.doi:''}\n`;});const blob=new Blob([out],{type:'text/plain'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='literature-review.txt';a.click();URL.revokeObjectURL(url);toast('Exported ✓');});
@@ -1347,7 +1372,8 @@ document.getElementById('exportBtn').addEventListener('click',()=>{let out='RESE
 load();
 if(!D.papers.length){D.papers.push({id:'demo1',title:'A Bayesian Approach to Multi-State Hidden Markov Models: Application to Dementia Progression',authors:'Williams, J.P.; Storlie, C.B.; Therneau, T.M.; Jack, C.R.; Hannig, J.',year:'2018',journal:'arXiv',volume:'',issue:'',pages:'',doi:'10.48550/arXiv.1802.02691',abstract:'A hidden Markov model for dementia progression using hierarchical Bayesian MCMC estimation, correcting for delayed enrollment bias and death bias in the Mayo Clinic Study of Aging data.',status:'reading',priority:'high',tags:['Bayesian','HMM','Dementia','Methods'],rating:4,due:'',myNotes:'Strong methodological contribution. The delayed-enrollment correction is the key novelty I should cite when discussing cohort bias.',keyPoints:[{text:'Hierarchical Bayesian HMM handles irregular observation times',color:'t-blue'},{text:'Corrects delayed enrollment bias — not in standard msm package',color:'t-red'},{text:'MCMC with adaptive Metropolis-within-Gibbs proposals',color:'t-green'},{text:'Seven-state model: amyloid × neuro-degeneration × dementia',color:'t-yellow'}],strengths:['Rigorous Bayesian framework with well-justified priors','Addresses a real bias (delayed enrollment) ignored by standard tools','Code made publicly available for reproducibility'],paperGaps:['Does not allow rates to vary by extent of amyloid burden','Computationally expensive — may not scale to larger cohorts'],quotes:[{text:'Prior information becomes necessary for practical identifiability of HMM parameters which makes Bayesian methodology the natural approach.',page:'4'},{text:'Standard software is incapable of accounting for this critical feature.',page:'6'}],related:[],pdfHls:[],added:Date.now()});save();}
 renderDash();renderLib();
+// upgrade any legacy base64 PDFs from older versions into IndexedDB
+migrateLegacyPdfs();
 </script>
-
-
-</body></html>
+</body>
+</html>
