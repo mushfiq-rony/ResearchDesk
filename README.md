@@ -8,6 +8,12 @@ Built for researchers and students who need to manage academic papers, annotate 
 
 ## Features
 
+### Multiple Independent Workspaces (Auto-Isolated Profiles)
+- Create multiple copies of the HTML file (e.g., `ResearchDesk_ProjectA.html`, `ResearchDesk_ProjectB.html`).
+- The app automatically detects the file name and creates a **completely separate, isolated storage vault** for each file.
+- Manage different research projects simultaneously without your data mixing.
+- A visible **Profile Indicator** on the Dashboard shows which workspace you are currently using.
+
 ### Library
 - Add papers manually, or **auto-fill metadata from a DOI** (powered by the free CrossRef API)
 - Attach PDFs directly to each paper
@@ -55,7 +61,7 @@ See **every paper's notes aggregated in one scrollable review**. Filter across y
 ### Citations & Export
 - Generate citations in **APA, MLA, Chicago, and BibTeX**
 - Export your entire review (bibliography, notes, gaps, drafts, references) as a text file
-- **Back up and restore** all your data as a JSON file
+- **Back up and restore** all your data (including attached PDFs) as a single JSON file
 
 ---
 
@@ -73,15 +79,22 @@ No installation, no internet connection required (except for optional DOI lookup
 3. Tap the **Share** button → **Add to Home Screen**.
 4. Launch it from your home screen for a full-screen, app-like experience.
 
+### Managing Multiple Projects
+To work on different research projects without mixing data:
+1. Make a copy of `ResearchDesk.html` and rename it (e.g., `ProjectA.html`).
+2. Open the new file in your browser. 
+3. The app will automatically create a fresh, isolated workspace for that file. You can verify the active profile name at the top of the Dashboard.
+
 ---
 
 ## Data & Privacy
 
-- All data — papers, PDFs, highlights, notes, and drafts — is stored **locally in your browser** using `localStorage`.
-- Nothing is uploaded to any server. The only outbound request is the optional DOI metadata lookup to CrossRef.
-- Use the built-in **Backup** button regularly to export a JSON copy of your data, especially before clearing browser data or switching devices.
+- All data is stored **100% locally in your browser**. Nothing is uploaded to any server.
+- **Smart Storage:** Metadata, notes, and settings are saved using `localStorage`, while large files like PDFs are stored using `IndexedDB` to handle hundreds of megabytes without hitting browser storage limits.
+- The only outbound request is the optional DOI metadata lookup to CrossRef.
+- Use the built-in **Backup** button regularly to export a JSON copy of your data (including all attached PDFs), especially before clearing browser data or switching devices.
 
-> **Note:** Because PDFs are stored in the browser, very large libraries may approach browser storage limits. Keep backups and remove PDFs you no longer need.
+> **Note:** Because data is tied to the specific file name and browser, clearing your browser's site data will erase your work. Always keep backups!
 
 ---
 
@@ -109,5 +122,5 @@ Released under the [MIT License](LICENSE). Free to use, modify, and share.
 
 ## Author
 
-Developed by **Md Mushfiqur Rahman**
+Developed by **Md Mushfiqur Rahman**  
 🌐 [mushfiq-rony.github.io](https://mushfiq-rony.github.io/)
