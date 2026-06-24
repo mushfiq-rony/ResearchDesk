@@ -217,19 +217,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
 
 /* SYNTHESIS */
 #vSynth{flex-direction:column}
-.synth-toolbar{height:48px;background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:8px;flex-shrink:0}
+.synth-toolbar{height:48px;background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:8px;flex-shrink:0;overflow-x:auto}
+.synth-tbtn{display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 11px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--muted);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent;transition:all .12s;flex-shrink:0}
+.synth-tbtn i{font-size:15px}
+.synth-tbtn:active,.synth-tbtn.on{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.synth-tbtn.icon-only{width:32px;padding:0;justify-content:center}
 .synth-label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
 .synth-body{flex:1;display:flex;overflow:hidden}
 .synth-canvas-wrap{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;background:var(--paper);position:relative;background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:22px 22px}
 .synth-canvas{position:relative;min-width:1400px;min-height:1000px}
-.theme-card{position:absolute;width:200px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);cursor:move;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+.theme-card{position:absolute;width:200px;min-width:150px;min-height:90px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);cursor:move;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;display:flex;flex-direction:column;overflow:hidden}
+.theme-resize{position:absolute;right:0;bottom:0;width:18px;height:18px;cursor:nwse-resize;z-index:5;background:linear-gradient(135deg,transparent 50%,var(--blue-b) 50%);border-radius:0 0 var(--radius) 0}
+.theme-resize:active{background:linear-gradient(135deg,transparent 50%,var(--blue) 50%)}
 .theme-card-head{padding:10px 12px 8px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:6px}
 .theme-card-title{font-size:12px;font-weight:600;flex:1;line-height:1.35;outline:none;border:none;background:transparent;color:var(--ink);font-family:inherit;resize:none;padding:0;overflow:hidden}
 .theme-card-del{background:none;border:none;cursor:pointer;color:var(--border);font-size:13px;flex-shrink:0;-webkit-tap-highlight-color:transparent}
 .theme-card-del:active{color:var(--red)}
-.theme-card-body{padding:8px 12px 10px}
+.theme-card-body{padding:8px 12px 10px;flex:1;overflow-y:auto;display:flex;flex-direction:column}
 .theme-paper-tag{font-size:10px;padding:3px 8px;border-radius:5px;margin-bottom:3px;display:inline-block;font-weight:500}
-.theme-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:6px;outline:none;width:100%;border:none;background:transparent;resize:none;font-family:inherit;padding:0;min-height:40px}
+.theme-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:6px;outline:none;width:100%;border:none;background:transparent;resize:none;font-family:inherit;padding:0;min-height:40px;flex:1}
 .theme-add-paper{margin-top:6px;width:100%;padding:5px;border:1px dashed var(--border);border-radius:5px;font-size:10px;color:var(--blue);background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .synth-panel{width:250px;border-left:1px solid var(--border);background:var(--card);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .synth-panel-section{padding:14px}
@@ -271,6 +277,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
 .write-area{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:32px 40px;background:var(--paper)}
 .write-section-title{font-family:'Lora',Georgia,serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:16px;border:none;background:transparent;width:100%;outline:none}
 .write-editor{width:100%;min-height:400px;font-family:'Lora',Georgia,serif;font-size:15px;line-height:1.85;color:var(--ink);border:none;background:transparent;outline:none;resize:none}
+.write-editor.latex{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:13.5px;line-height:1.7}
+.cite-dd{position:absolute;z-index:1500;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.16);width:340px;max-height:260px;overflow-y:auto;display:none}
+.cite-dd-item{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);-webkit-tap-highlight-color:transparent}
+.cite-dd-item:last-child{border-bottom:none}
+.cite-dd-item.sel,.cite-dd-item:hover{background:var(--blue-l)}
+.cite-dd-key{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--blue);font-weight:600}
+.cite-dd-title{font-size:11px;color:var(--ink);margin-top:2px;line-height:1.35;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.cite-dd-meta{font-size:10px;color:var(--muted);margin-top:1px}
+.cite-dd-empty{padding:12px;font-size:11px;color:var(--muted);text-align:center}
+.latex-hint{font-size:10px;color:var(--muted);margin-bottom:10px;padding:7px 10px;background:var(--blue-l);border-radius:7px;line-height:1.5}
+.latex-hint code{font-family:ui-monospace,Menlo,monospace;background:rgba(0,0,0,.05);padding:1px 4px;border-radius:3px;color:var(--blue)}
+/* cite autocomplete */
+.cite-ac{position:absolute;z-index:300;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.16);max-height:240px;overflow-y:auto;width:320px;display:none}
+.cite-ac-item{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);-webkit-tap-highlight-color:transparent}
+.cite-ac-item:last-child{border-bottom:none}
+.cite-ac-item.sel,.cite-ac-item:hover{background:var(--blue-l)}
+.cite-ac-key{font-family:ui-monospace,monospace;font-size:12px;color:var(--blue);font-weight:600}
+.cite-ac-title{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .iq-panel{width:260px;border-left:1px solid var(--border);background:var(--card);overflow-y:auto;-webkit-overflow-scrolling:touch;flex-shrink:0}
 .iq-head{padding:14px;border-bottom:1px solid var(--border);font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
 .iq-paper-name{font-size:11px;font-weight:600;color:var(--ink);padding:8px 14px 4px;background:var(--faint);border-bottom:1px solid var(--border)}
@@ -390,11 +414,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
 <!-- SYNTHESIS -->
 <div class="view" id="vSynth">
   <div class="synth-toolbar">
-    <span class="synth-label">Concept Map</span>
-    <button class="ibt" id="addThemeBtn" title="Add theme"><i class="ti ti-plus"></i></button>
-    <button class="ibt" id="autoPopBtn" title="Auto-fill from key points"><i class="ti ti-wand"></i></button>
+    <span class="synth-label" style="flex-shrink:0">Concept Map</span>
+    <button class="synth-tbtn icon-only" id="addThemeBtn" title="Add theme card"><i class="ti ti-plus"></i></button>
+    <button class="synth-tbtn icon-only" id="autoPopBtn" title="Auto-fill themes from key points"><i class="ti ti-wand"></i></button>
+    <div style="width:0.5px;height:22px;background:var(--border);flex-shrink:0"></div>
+    <button class="synth-tbtn" id="linkThemeBtn" title="Draw a labeled link between two theme cards"><i class="ti ti-link"></i> Link themes</button>
+    <button class="synth-tbtn" id="linkPaperBtn" title="Create a labeled relationship between two papers"><i class="ti ti-git-compare"></i> Link papers</button>
+    <div style="width:0.5px;height:22px;background:var(--border);flex-shrink:0"></div>
+    <button class="synth-tbtn" id="panBtn" title="Pan/move the canvas"><i class="ti ti-hand-stop"></i> Pan</button>
+    <button class="synth-tbtn icon-only" id="fitBtn" title="Reset view"><i class="ti ti-focus-centered"></i></button>
     <div class="tsp"></div>
-    <span style="font-size:11px;color:var(--muted)">Drag cards · tap text to edit</span>
+    <span style="font-size:11px;color:var(--muted);flex-shrink:0" id="synthHint">Drag cards to move · drag corner to resize</span>
   </div>
   <div class="synth-body">
     <div class="synth-canvas-wrap" id="synthWrap">
@@ -403,6 +433,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
     </div>
     <div class="synth-panel">
       <div class="synth-panel-section">
+        <h4>Relationships <span style="color:var(--blue)">●</span></h4>
+        <div id="linkList"></div>
+        <div style="display:flex;gap:5px;margin-top:6px">
+          <button class="add-row" style="flex:1;padding:6px;border-radius:6px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--blue-b);background:transparent;color:var(--blue)" onclick="startLink('theme')">+ Theme link</button>
+          <button class="add-row" style="flex:1;padding:6px;border-radius:6px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--blue-b);background:transparent;color:var(--blue)" onclick="startLink('paper')">+ Paper link</button>
+        </div>
+      </div>
+      <div class="synth-panel-section" style="border-top:1px solid var(--border)">
         <h4>Research Gaps <span style="color:var(--red)">●</span></h4>
         <div id="gapList"></div>
         <textarea class="add-note-inp" id="gapInp" placeholder="Describe a gap or contradiction…"></textarea>
@@ -435,7 +473,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
   </div>
   <div class="write-main">
     <div class="write-toolbar">
+      <button class="wt-btn" id="latexModeBtn"><i class="ti ti-math-function"></i> LaTeX mode</button>
       <button class="wt-btn" id="insertQuoteBtn"><i class="ti ti-quote"></i> Insert quote</button>
+      <button class="wt-btn" id="insertCiteBtn"><i class="ti ti-at"></i> Insert \cite</button>
+      <button class="wt-btn" id="latexExportBtn"><i class="ti ti-file-export"></i> Export LaTeX</button>
       <button class="wt-btn" id="toggleIqBtn"><i class="ti ti-layout-sidebar-right"></i></button>
       <div class="wc-badge" id="wcBadge">0 words</div>
     </div>
@@ -446,6 +487,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
       </div>
     </div>
   </div>
+  <div class="cite-ac" id="citeAc"></div>
   <div class="iq-panel" id="iqPanel" style="display:none">
     <div class="iq-head">Quotes to insert</div>
     <div id="iqList"></div>
@@ -554,7 +596,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-s
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-let D={papers:[],gaps:[],agrees:[],themes:[],sections:[],sectionContents:{}};
+let D={papers:[],gaps:[],agrees:[],themes:[],links:[],sections:[],sectionContents:{}};
 let curPaper=null,curSection=null,editingId=null,mTags=[],mPdfBlob=null,mPdfName=null,mPdfRemove=false;
 
 /* ══ IndexedDB for PDF blobs (large storage: hundreds of MB–GB) ══ */
@@ -597,6 +639,44 @@ const TAG_COLORS=['t-blue','t-green','t-red','t-yellow','t-purple'];
 function tagColor(t){let h=0;for(const c of t)h=(h*31+c.charCodeAt(0))%TAG_COLORS.length;return TAG_COLORS[h];}
 const kpDotColor=c=>({'t-blue':'#2563EB','t-green':'#16A34A','t-red':'#DC2626','t-yellow':'#D97706','t-purple':'#7C3AED'}[c]||'#888');
 const kpLabel=c=>({'t-blue':'Insight','t-green':'Method','t-red':'Limitation','t-yellow':'Finding','t-purple':'Theory'}[c]||c);
+
+/* ══ CITATION KEYS — AuthorYear (e.g. williams2018), deduped with a,b,c… ══ */
+function baseCiteKey(p){
+  let last='';
+  if(p&&p.authors){
+    const first=p.authors.split(/[;,]/)[0].trim();
+    last=first.split(/\s+/)[0]||first;
+  }
+  last=(last||'ref').toLowerCase().replace(/[^a-z]/g,'');
+  if(!last)last='ref';
+  const yr=((p&&p.year)||'').toString().replace(/[^0-9]/g,'')||'nd';
+  return last+yr;
+}
+// map paperId -> unique key (stable order by date added)
+function citeKeyMap(){
+  const counts={},seen={},map={};
+  const ordered=[...D.papers].sort((a,b)=>(a.added||0)-(b.added||0));
+  ordered.forEach(p=>{const b=baseCiteKey(p);counts[b]=(counts[b]||0)+1;});
+  ordered.forEach(p=>{
+    const b=baseCiteKey(p);
+    let key=b;
+    if(counts[b]>1){key=b+String.fromCharCode(97+(seen[b]||0));seen[b]=(seen[b]||0)+1;}
+    map[p.id]=key;
+  });
+  return map;
+}
+function citeKey(p){if(!p)return'ref';return citeKeyMap()[p.id]||baseCiteKey(p);}
+function bibEntry(p,key){
+  const yr=(p.year||'').toString();
+  return `@article{${key},\n  title   = {${p.title||''}},\n  author  = {${(p.authors||'').replace(/;/g,' and ')}},\n  journal = {${p.journal||''}},\n`+
+    (p.volume?`  volume  = {${p.volume}},\n`:'')+
+    (p.issue?`  number  = {${p.issue}},\n`:'')+
+    (p.pages?`  pages   = {${p.pages}},\n`:'')+
+    `  year    = {${yr}}`+
+    (p.doi?`,\n  doi     = {${p.doi}}`:'')+
+    `\n}`;
+}
+
 
 /* NAV */
 document.querySelectorAll('.navtab').forEach(t=>t.addEventListener('click',()=>{
@@ -829,7 +909,7 @@ function renderDetail(){
     <div class="detail-head">
       <div class="detail-year">${p.year||'—'}${p.journal?' · '+esc(p.journal):''}${p.volume?', Vol. '+esc(p.volume):''}${p.issue?'('+esc(p.issue)+')':''}${p.pages?', pp. '+esc(p.pages):''}</div>
       <div class="detail-title">${esc(p.title)}</div>
-      <div class="detail-authors">${esc(p.authors||'Unknown authors')}</div>
+      <div class="detail-authors">${esc(p.authors||'Unknown authors')} &nbsp;·&nbsp; <code style="background:var(--yellow-l);color:var(--yellow);padding:2px 7px;border-radius:5px;font-size:11px;font-family:ui-monospace,monospace;cursor:pointer" onclick="copyText('\\\\cite{${citeKey(p)}}','Copied \\\\cite{${citeKey(p)}}')" title="Tap to copy \\cite">\\cite{${citeKey(p)}}</code></div>
       <div class="detail-tags">${(p.tags||[]).map(t=>`<span class="tag-m ${tagColor(t)}">${esc(t)}</span>`).join('')}</div>
       <div class="detail-actions">
         <button class="dact pri" onclick="openAddPaper('${p.id}')"><i class="ti ti-edit"></i> Edit</button>
@@ -1112,23 +1192,115 @@ function renderCite(style){
   else if(style==='mla')out.textContent=`${auth}. "${p.title}." ${p.journal||''}${p.volume?', vol. '+p.volume:''}${p.issue?', no. '+p.issue:''}, ${yr}${p.pages?', pp. '+p.pages:''}.${p.doi?' DOI: '+p.doi:''}`;
   else if(style==='chicago')out.textContent=`${auth}. "${p.title}." ${p.journal||''} ${p.volume||''}${p.issue?', no. '+p.issue:''} (${yr})${p.pages?': '+p.pages:''}.${p.doi?' https://doi.org/'+p.doi:''}`;
   else{
-    const key=(p.authors||'unknown').split(/[,;]/)[0].trim().toLowerCase().replace(/\s/g,'')+yr;
-    out.textContent=`@article{${key},\n  title={${p.title}},\n  author={${p.authors||''}},\n  journal={${p.journal||''}},\n${p.volume?'  volume={'+p.volume+'},\n':''}${p.issue?'  number={'+p.issue+'},\n':''}${p.pages?'  pages={'+p.pages+'},\n':''}  year={${yr}}${p.doi?',\n  doi={'+p.doi+'}':''}\n}`;
+    const key=citeKeyFor(p);
+    out.textContent=`% \\cite{${key}}\n`+bibEntry(p,key);
   }
 }
 function copyCite(){const t=document.getElementById('citeOutput').textContent;navigator.clipboard?.writeText(t).then(()=>toast('Citation copied ✓')).catch(()=>{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('Citation copied ✓');});}
+function copyText(t,msg){navigator.clipboard?.writeText(t).then(()=>toast(msg||'Copied ✓')).catch(()=>{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast(msg||'Copied ✓');});}
 
 /* ══ SYNTHESIS ══ */
-function renderSynth(){const c=document.getElementById('synthCanvas');c.querySelectorAll('.theme-card').forEach(e=>e.remove());(D.themes||[]).forEach(th=>addThemeCardEl(th,c));drawConnections();renderGapsAgrees();}
+let linkMode=null,linkFirst=null;
+function renderSynth(){const c=document.getElementById('synthCanvas');c.querySelectorAll('.theme-card').forEach(e=>e.remove());(D.themes||[]).forEach(th=>addThemeCardEl(th,c));drawConnections();renderGapsAgrees();renderLinks();}
 function renderAllKp(){const el=document.getElementById('allKpList');const all=D.papers.flatMap(p=>(p.keyPoints||[]).map(kp=>({...kp,paper:p.title})));el.innerHTML=all.length?all.map(kp=>`<div style="margin-bottom:8px;padding:6px 8px;border-radius:6px;background:var(--faint)"><div style="font-size:11px;line-height:1.45;color:var(--ink)">${esc(kp.text)}</div><div style="font-size:9px;color:var(--muted);margin-top:3px">${esc(kp.paper)}</div></div>`).join(''):'<i>Add key points to papers in the Library.</i>';}
 document.getElementById('addThemeBtn').addEventListener('click',()=>{const th={id:'th'+Date.now(),title:'New theme',note:'',papers:[],x:60,y:60};if(!D.themes)D.themes=[];D.themes.push(th);save();addThemeCardEl(th,document.getElementById('synthCanvas'));});
 document.getElementById('autoPopBtn').addEventListener('click',()=>{const c=document.getElementById('synthCanvas');const groups={};D.papers.forEach(p=>(p.keyPoints||[]).forEach(kp=>{(groups[kp.color]=groups[kp.color]||[]).push({text:kp.text,paperId:p.id});}));let px=60,py=60;Object.entries(groups).forEach(([col,kps])=>{const th={id:'th'+Date.now()+col,title:kpLabel(col)+'s',note:kps.slice(0,3).map(k=>k.text).join(' · ').substring(0,120),papers:[...new Set(kps.map(k=>k.paperId))],x:px,y:py};if(!D.themes)D.themes=[];D.themes.push(th);addThemeCardEl(th,c);px+=230;if(px>700){px=60;py+=210;}});save();drawConnections();toast('Themes generated');});
-function addThemeCardEl(th,c){const el=document.createElement('div');el.className='theme-card';el.dataset.id=th.id;el.style.cssText=`left:${th.x}px;top:${th.y}px`;el.innerHTML=`<div class="theme-card-head"><textarea class="theme-card-title" rows="1" spellcheck="false">${esc(th.title)}</textarea><button class="theme-card-del" onclick="delTheme('${th.id}')"><i class="ti ti-x"></i></button></div><div class="theme-card-body"><div id="thp-${th.id}">${renderThemePapers(th)}</div><textarea class="theme-note" placeholder="Notes on this theme…" rows="2">${esc(th.note)}</textarea><button class="theme-add-paper" onclick="addPaperToTheme('${th.id}')">+ Link paper</button></div>`;el.querySelector('.theme-card-title').addEventListener('input',e=>{th.title=e.target.value;save();});el.querySelector('.theme-note').addEventListener('input',e=>{th.note=e.target.value;save();});setupCardDrag(el,th);c.appendChild(el);}
+document.getElementById('linkThemeBtn').addEventListener('click',()=>startLink('theme'));
+document.getElementById('linkPaperBtn').addEventListener('click',()=>startLink('paper'));
+
+function startLink(kind){
+  if(kind==='paper'){
+    // pick two papers from a list
+    if(D.papers.length<2){toast('Add at least 2 papers first');return;}
+    const names=D.papers.map((p,i)=>`${i+1}. ${p.title.substring(0,50)}`).join('\n');
+    const a=parseInt(prompt('FIRST paper number:\n\n'+names))-1;
+    if(isNaN(a)||a<0||a>=D.papers.length)return;
+    const b=parseInt(prompt('SECOND paper number:\n\n'+names))-1;
+    if(isNaN(b)||b<0||b>=D.papers.length||a===b)return;
+    const label=prompt('Describe the relationship\n(e.g. "extends", "contradicts", "same dataset", "replicates"):','related to');
+    if(label===null)return;
+    if(!D.links)D.links=[];
+    D.links.push({id:'lk'+Date.now(),kind:'paper',from:D.papers[a].id,to:D.papers[b].id,label:label||'related'});
+    save();renderLinks();drawConnections();toast('Relationship added');
+  }else{
+    // draw between theme cards by clicking two cards
+    if((D.themes||[]).length<2){toast('Add at least 2 theme cards first');return;}
+    linkMode='theme';linkFirst=null;
+    document.getElementById('synthHint').textContent='Tap the FIRST theme card…';
+    document.getElementById('linkThemeBtn').classList.add('on');
+    toast('Tap two theme cards to link them');
+  }
+}
+function handleThemeLinkClick(thId){
+  if(linkMode!=='theme')return false;
+  if(!linkFirst){linkFirst=thId;document.getElementById('synthHint').textContent='Now tap the SECOND theme card…';return true;}
+  if(linkFirst===thId){return true;}
+  const label=prompt('Label this relationship\n(e.g. "leads to", "contrasts with", "supports"):','relates to');
+  linkMode=null;document.getElementById('linkThemeBtn').classList.remove('on');document.getElementById('synthHint').textContent='Drag cards · tap text to edit';
+  if(label!==null){if(!D.links)D.links=[];D.links.push({id:'lk'+Date.now(),kind:'theme',from:linkFirst,to:thId,label:label||'relates to'});save();renderLinks();drawConnections();toast('Themes linked');}
+  linkFirst=null;return true;
+}
+function renderLinks(){
+  const el=document.getElementById('linkList');if(!el)return;
+  const links=D.links||[];
+  if(!links.length){el.innerHTML='<div style="font-size:11px;color:var(--muted);font-style:italic">No relationships yet. Link themes or papers below.</div>';return;}
+  el.innerHTML=links.map(l=>{
+    let a,b;
+    if(l.kind==='theme'){a=(D.themes.find(t=>t.id===l.from)||{}).title||'?';b=(D.themes.find(t=>t.id===l.to)||{}).title||'?';}
+    else{a=citeKey(D.papers.find(p=>p.id===l.from)||{});b=citeKey(D.papers.find(p=>p.id===l.to)||{});}
+    return `<div style="padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:5px;background:var(--faint);font-size:11px;position:relative">
+      <div style="font-weight:600;color:var(--ink);margin-bottom:2px">${esc(a)} <span style="color:var(--blue)">→</span> ${esc(b)}</div>
+      <div style="color:var(--muted);font-style:italic">"${esc(l.label)}" <span style="font-size:9px;text-transform:uppercase;letter-spacing:.4px;opacity:.6">· ${l.kind}</span></div>
+      <button onclick="editLink('${l.id}')" style="position:absolute;top:6px;right:24px;background:none;border:none;cursor:pointer;color:var(--muted);font-size:12px"><i class="ti ti-edit"></i></button>
+      <button onclick="delLink('${l.id}')" style="position:absolute;top:6px;right:6px;background:none;border:none;cursor:pointer;color:var(--muted);font-size:12px"><i class="ti ti-x"></i></button>
+    </div>`;
+  }).join('');
+}
+function editLink(id){const l=(D.links||[]).find(x=>x.id===id);if(!l)return;const nl=prompt('Edit relationship label:',l.label);if(nl!==null){l.label=nl;save();renderLinks();drawConnections();}}
+function delLink(id){D.links=(D.links||[]).filter(x=>x.id!==id);save();renderLinks();drawConnections();}
+
+function addThemeCardEl(th,c){const el=document.createElement('div');el.className='theme-card';el.dataset.id=th.id;el.style.cssText=`left:${th.x}px;top:${th.y}px;width:${th.w||200}px;height:${th.h||'auto'}${th.h?'px':''}`;el.innerHTML=`<div class="theme-card-head"><textarea class="theme-card-title" rows="1" spellcheck="false">${esc(th.title)}</textarea><button class="theme-card-del" onclick="delTheme('${th.id}')"><i class="ti ti-x"></i></button></div><div class="theme-card-body"><div id="thp-${th.id}">${renderThemePapers(th)}</div><textarea class="theme-note" placeholder="Notes on this theme…" rows="2">${esc(th.note)}</textarea><button class="theme-add-paper" onclick="addPaperToTheme('${th.id}')">+ Link paper</button></div><div class="theme-resize" title="Drag to resize"></div>`;el.querySelector('.theme-card-title').addEventListener('input',e=>{th.title=e.target.value;save();renderLinks();});el.querySelector('.theme-note').addEventListener('input',e=>{th.note=e.target.value;save();});el.addEventListener('click',ev=>{if(linkMode==='theme'&&!['TEXTAREA','BUTTON','INPUT','I'].includes(ev.target.tagName)&&!ev.target.classList.contains('theme-resize')){ev.stopPropagation();handleThemeLinkClick(th.id);}});setupCardDrag(el,th);setupCardResize(el,th);c.appendChild(el);}
 function renderThemePapers(th){return (th.papers||[]).map(pid=>{const p=D.papers.find(x=>x.id===pid);return p?`<span class="theme-paper-tag ${tagColor(p.title)}">${esc(p.title.substring(0,20))}${p.title.length>20?'…':''}</span> `:'';}).join('');}
 function addPaperToTheme(thId){const th=D.themes.find(x=>x.id===thId);if(!th)return;if(!D.papers.length){toast('Add papers first');return;}const names=D.papers.map((p,i)=>`${i+1}. ${p.title.substring(0,55)}`).join('\n');const idx=parseInt(prompt('Link which paper?\n\n'+names))-1;if(isNaN(idx)||idx<0||idx>=D.papers.length)return;const pid=D.papers[idx].id;if(!th.papers.includes(pid)){th.papers.push(pid);save();}document.getElementById('thp-'+thId).innerHTML=renderThemePapers(th);drawConnections();}
-function delTheme(id){if(!confirm('Remove this theme?'))return;D.themes=D.themes.filter(t=>t.id!==id);save();document.querySelector(`.theme-card[data-id="${id}"]`)?.remove();drawConnections();}
-function setupCardDrag(el,th){let sx,sy,ox,oy,drag=false;function start(e){if(['TEXTAREA','BUTTON','INPUT','I'].includes(e.target.tagName))return;drag=true;const t=e.touches?e.touches[0]:e;const cr=el.getBoundingClientRect();sx=t.clientX;sy=t.clientY;ox=cr.left;oy=cr.top;el.style.zIndex=10;e.preventDefault();}function move(e){if(!drag)return;e.preventDefault();const t=e.touches?e.touches[0]:e;const w=document.getElementById('synthWrap'),wr=w.getBoundingClientRect();const nl=Math.max(0,ox-wr.left+w.scrollLeft+(t.clientX-sx));const nt=Math.max(0,oy-wr.top+w.scrollTop+(t.clientY-sy));el.style.left=nl+'px';el.style.top=nt+'px';th.x=nl;th.y=nt;drawConnections();}function end(){if(drag){drag=false;el.style.zIndex='';save();}}el.addEventListener('mousedown',start);el.addEventListener('touchstart',start,{passive:false});document.addEventListener('mousemove',move);document.addEventListener('touchmove',move,{passive:false});document.addEventListener('mouseup',end);document.addEventListener('touchend',end);}
-function drawConnections(){const svg=document.getElementById('synthSvg');svg.innerHTML='';(D.themes||[]).forEach(th=>{const x1=th.x+100,y1=th.y+30;(th.papers||[]).forEach(pid=>{(D.themes||[]).forEach(th2=>{if(th2.id!==th.id&&(th2.papers||[]).includes(pid)){const x2=th2.x+100,y2=th2.y+30;const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.setAttribute('stroke','#BFDBFE');l.setAttribute('stroke-width','1.5');svg.appendChild(l);}});});});}
+function delTheme(id){if(!confirm('Remove this theme?'))return;D.themes=D.themes.filter(t=>t.id!==id);D.links=(D.links||[]).filter(l=>!(l.kind==='theme'&&(l.from===id||l.to===id)));save();document.querySelector(`.theme-card[data-id="${id}"]`)?.remove();drawConnections();renderLinks();}
+function setupCardDrag(el,th){let sx,sy,ox,oy,drag=false;function start(e){if(['TEXTAREA','BUTTON','INPUT','I'].includes(e.target.tagName))return;if(e.target.classList.contains('theme-resize'))return;if(linkMode)return;drag=true;const t=e.touches?e.touches[0]:e;const cr=el.getBoundingClientRect();sx=t.clientX;sy=t.clientY;ox=cr.left;oy=cr.top;el.style.zIndex=10;e.preventDefault();}function move(e){if(!drag)return;e.preventDefault();const t=e.touches?e.touches[0]:e;const w=document.getElementById('synthWrap'),wr=w.getBoundingClientRect();const nl=Math.max(0,ox-wr.left+w.scrollLeft+(t.clientX-sx));const nt=Math.max(0,oy-wr.top+w.scrollTop+(t.clientY-sy));el.style.left=nl+'px';el.style.top=nt+'px';th.x=nl;th.y=nt;drawConnections();}function end(){if(drag){drag=false;el.style.zIndex='';save();}}el.addEventListener('mousedown',start);el.addEventListener('touchstart',start,{passive:false});document.addEventListener('mousemove',move);document.addEventListener('touchmove',move,{passive:false});document.addEventListener('mouseup',end);document.addEventListener('touchend',end);}
+
+function setupCardResize(el,th){
+  const handle=el.querySelector('.theme-resize');if(!handle)return;
+  let sx,sy,sw,sh,rz=false;
+  function start(e){rz=true;const t=e.touches?e.touches[0]:e;sx=t.clientX;sy=t.clientY;const cr=el.getBoundingClientRect();sw=cr.width;sh=cr.height;el.style.zIndex=11;e.preventDefault();e.stopPropagation();}
+  function move(e){if(!rz)return;e.preventDefault();const t=e.touches?e.touches[0]:e;const nw=Math.max(150,sw+(t.clientX-sx));const nh=Math.max(90,sh+(t.clientY-sy));el.style.width=nw+'px';el.style.height=nh+'px';th.w=nw;th.h=nh;drawConnections();}
+  function end(){if(rz){rz=false;el.style.zIndex='';save();}}
+  handle.addEventListener('mousedown',start);handle.addEventListener('touchstart',start,{passive:false});
+  document.addEventListener('mousemove',move);document.addEventListener('touchmove',move,{passive:false});
+  document.addEventListener('mouseup',end);document.addEventListener('touchend',end);
+}
+
+// draw ONLY user-defined theme links, with labels
+function drawConnections(){
+  const svg=document.getElementById('synthSvg');svg.innerHTML='';
+  (D.links||[]).filter(l=>l.kind==='theme').forEach(l=>{
+    const a=D.themes.find(t=>t.id===l.from),b=D.themes.find(t=>t.id===l.to);
+    if(!a||!b)return;
+    const x1=a.x+100,y1=a.y+30,x2=b.x+100,y2=b.y+30;
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',x1);line.setAttribute('y1',y1);line.setAttribute('x2',x2);line.setAttribute('y2',y2);
+    line.setAttribute('stroke','#93A3F0');line.setAttribute('stroke-width','2');
+    svg.appendChild(line);
+    // label at midpoint
+    const mx=(x1+x2)/2,my=(y1+y2)/2;
+    const padding=4;
+    const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('x',mx);txt.setAttribute('y',my);txt.setAttribute('text-anchor','middle');txt.setAttribute('dominant-baseline','middle');
+    txt.setAttribute('font-size','11');txt.setAttribute('font-family','-apple-system,sans-serif');txt.setAttribute('fill','#4A3B9C');txt.setAttribute('font-weight','600');
+    txt.textContent=l.label;
+    // bg rect for readability
+    const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    const approxW=l.label.length*6+padding*2;
+    rect.setAttribute('x',mx-approxW/2);rect.setAttribute('y',my-9);rect.setAttribute('width',approxW);rect.setAttribute('height',18);rect.setAttribute('rx',5);rect.setAttribute('fill','#EEF0FB');rect.setAttribute('stroke','#C5BEF0');
+    svg.appendChild(rect);svg.appendChild(txt);
+  });
+}
 function renderGapsAgrees(){document.getElementById('gapList').innerHTML=(D.gaps||[]).map((g,i)=>`<div class="gap-item">${esc(g)}<button class="gap-del" onclick="delGap(${i})"><i class="ti ti-x"></i></button></div>`).join('');document.getElementById('agreeList').innerHTML=(D.agrees||[]).map((a,i)=>`<div class="agree-item">${esc(a)}<button class="agree-del" onclick="delAgree(${i})"><i class="ti ti-x"></i></button></div>`).join('');}
 document.getElementById('addGapBtn').addEventListener('click',()=>{const v=document.getElementById('gapInp').value.trim();if(!v)return;(D.gaps=D.gaps||[]).push(v);document.getElementById('gapInp').value='';save();renderGapsAgrees();toast('Gap noted');});
 document.getElementById('addAgreeBtn').addEventListener('click',()=>{const v=document.getElementById('gapInp').value.trim();if(!v)return;(D.agrees=D.agrees||[]).push(v);document.getElementById('gapInp').value='';save();renderGapsAgrees();toast('Agreement noted');});
@@ -1140,11 +1312,140 @@ function renderSections(){const el=document.getElementById('sectionList');if(!D.
 document.getElementById('addSecBtn').addEventListener('click',()=>{const v=document.getElementById('newSecInp').value.trim();if(!v)return;if(!D.sections)D.sections=[];const id='s'+Date.now();D.sections.push({id,name:v});document.getElementById('newSecInp').value='';save();renderSections();selectSection(id);});
 document.getElementById('newSecInp').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('addSecBtn').click();});
 function delSection(id){if(!confirm('Delete this section?'))return;D.sections=D.sections.filter(s=>s.id!==id);delete D.sectionContents[id];if(curSection===id){curSection=null;document.getElementById('writeArea').innerHTML='<div style="color:var(--muted);text-align:center;padding:60px 20px"><i class="ti ti-pencil" style="font-size:40px;opacity:.2;display:block;margin-bottom:12px;color:var(--blue)"></i>Select a section to write.</div>';}save();renderSections();}
-function selectSection(id){curSection=id;const sec=D.sections.find(s=>s.id===id);if(!sec)return;renderSections();const content=D.sectionContents[id]||'';document.getElementById('writeArea').innerHTML=`<input class="write-section-title" value="${esc(sec.name)}" id="secTitleInp"><textarea class="write-editor" id="writeEditor" placeholder="Start writing…">${esc(content)}</textarea>`;document.getElementById('secTitleInp').addEventListener('input',e=>{sec.name=e.target.value;save();renderSections();});const ed=document.getElementById('writeEditor');ed.addEventListener('input',()=>{D.sectionContents[id]=ed.value;document.getElementById('wcBadge').textContent=wc(ed.value)+' words';renderSections();save();});document.getElementById('wcBadge').textContent=wc(content)+' words';}
+let latexMode=false;
+function selectSection(id){
+  curSection=id;const sec=D.sections.find(s=>s.id===id);if(!sec)return;renderSections();
+  const content=D.sectionContents[id]||'';
+  document.getElementById('writeArea').innerHTML=`
+    <input class="write-section-title" value="${esc(sec.name)}" id="secTitleInp">
+    ${latexMode?'<div class="latex-hint">LaTeX mode on. Type <code>\\\\cite{</code> to search your papers. Use <code>\\\\textit{}</code>, <code>\\\\section{}</code>, etc. freely — export gives you a <code>.tex</code> + <code>.bib</code>.</div>':''}
+    <textarea class="write-editor ${latexMode?'latex':''}" id="writeEditor" placeholder="${latexMode?'Start writing LaTeX… type \\\\cite{ to cite a paper':'Start writing…'}">${esc(content)}</textarea>
+    <div class="cite-dd" id="citeDd"></div>`;
+  document.getElementById('secTitleInp').addEventListener('input',e=>{sec.name=e.target.value;save();renderSections();});
+  const ed=document.getElementById('writeEditor');
+  ed.addEventListener('input',()=>{
+    D.sectionContents[id]=ed.value;
+    document.getElementById('wcBadge').textContent=wc(ed.value)+' words';
+    renderSections();save();
+    handleCiteAutocomplete(ed);
+  });
+  ed.addEventListener('keydown',handleCiteKeydown);
+  ed.addEventListener('blur',()=>setTimeout(()=>{const dd=document.getElementById('citeDd');if(dd)dd.style.display='none';},200));
+  document.getElementById('wcBadge').textContent=wc(content)+' words';
+}
+
+/* ── \cite{} autocomplete ── */
+let citeMatches=[],citeSelIdx=0,citeTriggerPos=-1;
+function handleCiteAutocomplete(ed){
+  const dd=document.getElementById('citeDd');if(!dd)return;
+  const pos=ed.selectionStart;
+  const before=ed.value.substring(0,pos);
+  // find an unclosed \cite{ , \citep{ , \citet{ just before cursor
+  const m=before.match(/\\cite[pt]?\{([^}]*)$/);
+  if(!m){dd.style.display='none';citeTriggerPos=-1;return;}
+  citeTriggerPos=pos-m[1].length;
+  const query=m[1].toLowerCase();
+  const km=citeKeyMap();
+  citeMatches=D.papers.map(p=>({p,key:km[p.id]})).filter(({p,key})=>{
+    const hay=(key+' '+(p.title||'')+' '+(p.authors||'')+' '+(p.year||'')).toLowerCase();
+    return !query||hay.includes(query);
+  }).slice(0,8);
+  if(!citeMatches.length){dd.innerHTML='<div class="cite-dd-empty">No matching papers. Keep typing a key.</div>';dd.style.display='block';positionCiteDd(ed,dd);return;}
+  citeSelIdx=0;
+  renderCiteDd();
+  dd.style.display='block';
+  positionCiteDd(ed,dd);
+}
+function renderCiteDd(){
+  const dd=document.getElementById('citeDd');if(!dd)return;
+  dd.innerHTML=citeMatches.map((m,i)=>`<div class="cite-dd-item ${i===citeSelIdx?'sel':''}" onmousedown="event.preventDefault();pickCite(${i})"><div class="cite-dd-key">${esc(m.key)}</div><div class="cite-dd-title">${esc(m.p.title||'')}</div><div class="cite-dd-meta">${esc((m.p.authors||'').split(';')[0])}${m.p.year?' · '+m.p.year:''}</div></div>`).join('');
+}
+function positionCiteDd(ed,dd){
+  // rough caret position using a mirror div
+  const rect=ed.getBoundingClientRect();
+  const wrapRect=document.getElementById('writeArea').getBoundingClientRect();
+  dd.style.left=Math.min(40,wrapRect.width-360)+'px';
+  dd.style.top='80px';
+  // place near top of editor for simplicity & reliability on mobile
+}
+function handleCiteKeydown(e){
+  const dd=document.getElementById('citeDd');
+  if(!dd||dd.style.display==='none')return;
+  if(e.key==='ArrowDown'){e.preventDefault();citeSelIdx=(citeSelIdx+1)%citeMatches.length;renderCiteDd();}
+  else if(e.key==='ArrowUp'){e.preventDefault();citeSelIdx=(citeSelIdx-1+citeMatches.length)%citeMatches.length;renderCiteDd();}
+  else if(e.key==='Enter'||e.key==='Tab'){if(citeMatches.length){e.preventDefault();pickCite(citeSelIdx);}}
+  else if(e.key==='Escape'){dd.style.display='none';}
+}
+function pickCite(i){
+  const ed=document.getElementById('writeEditor');if(!ed||!citeMatches[i])return;
+  const key=citeMatches[i].key;
+  const pos=ed.selectionStart;
+  // replace from citeTriggerPos..pos with the key, then close brace if not present
+  const before=ed.value.substring(0,citeTriggerPos);
+  let after=ed.value.substring(pos);
+  let insert=key;
+  if(after[0]==='}'){after=after.substring(1);} // we'll re-add the brace
+  ed.value=before+insert+'}'+after;
+  const newPos=(before+insert+'}').length;
+  ed.setSelectionRange(newPos,newPos);
+  D.sectionContents[curSection]=ed.value;
+  document.getElementById('citeDd').style.display='none';
+  document.getElementById('wcBadge').textContent=wc(ed.value)+' words';
+  save();ed.focus();
+}
 function renderIqPanel(){const el=document.getElementById('iqList');const allQ=D.papers.flatMap(p=>(p.quotes||[]).map(q=>({...q,paperTitle:p.title,authorStr:p.authors,year:p.year})));if(!allQ.length){el.innerHTML='<div style="padding:16px;font-size:11px;color:var(--muted);text-align:center">Save quotes in the Library to insert them here.</div>';return;}const byP={};allQ.forEach(q=>{(byP[q.paperTitle]=byP[q.paperTitle]||[]).push(q);});el.innerHTML=Object.entries(byP).map(([pt,qs])=>`<div class="iq-paper-name">${esc(pt)}</div>${qs.map(q=>`<div class="iq-quote" onclick='insertQuote(${JSON.stringify(JSON.stringify(q))})'><div class="iq-quote-text">"${esc(q.text.substring(0,120))}${q.text.length>120?'…':''}"</div><div class="iq-quote-meta">${q.page?'p.'+q.page+' · ':''}Tap to insert</div></div>`).join('')}`).join('');}
 function insertQuote(qjson){if(!curSection){toast('Select a section first');return;}const q=JSON.parse(qjson);const ed=document.getElementById('writeEditor');if(!ed)return;const ins=`\n"${q.text}" (${q.authorStr||q.paperTitle}${q.year?', '+q.year:''}${q.page?', p.'+q.page:''})\n`;const pos=ed.selectionStart;ed.value=ed.value.substring(0,pos)+ins+ed.value.substring(pos);D.sectionContents[curSection]=ed.value;document.getElementById('wcBadge').textContent=wc(ed.value)+' words';renderSections();save();toast('Quote inserted');}
 document.getElementById('toggleIqBtn').addEventListener('click',()=>{const p=document.getElementById('iqPanel');p.style.display=p.style.display==='none'?'block':'none';renderIqPanel();});
 document.getElementById('insertQuoteBtn').addEventListener('click',()=>{document.getElementById('iqPanel').style.display='block';renderIqPanel();});
+document.getElementById('latexModeBtn').addEventListener('click',()=>{
+  latexMode=!latexMode;
+  document.getElementById('latexModeBtn').classList.toggle('pri',latexMode);
+  if(curSection)selectSection(curSection);
+  toast(latexMode?'LaTeX mode on — \\cite{ autocompletes papers':'LaTeX mode off');
+});
+document.getElementById('insertCiteBtn').addEventListener('click',()=>{
+  if(!curSection){toast('Select a section first');return;}
+  const ed=document.getElementById('writeEditor');if(!ed)return;
+  const pos=ed.selectionStart;
+  ed.value=ed.value.substring(0,pos)+'\\cite{'+ed.value.substring(pos);
+  const np=pos+6;ed.setSelectionRange(np,np);ed.focus();
+  D.sectionContents[curSection]=ed.value;save();
+  handleCiteAutocomplete(ed);
+});
+document.getElementById('latexExportBtn').addEventListener('click',exportLatex);
+
+/* ── LaTeX / Overleaf export ── */
+function exportLatex(){
+  if(!D.sections||!D.sections.length){toast('Add sections in the Write tab first');return;}
+  const km=citeKeyMap();
+  // collect which keys are actually cited
+  const allText=D.sections.map(s=>D.sectionContents[s.id]||'').join('\n');
+  const citedKeys=new Set();
+  (allText.match(/\\cite[pt]?\{([^}]*)\}/g)||[]).forEach(c=>{
+    const inner=c.replace(/\\cite[pt]?\{/,'').replace(/\}$/,'');
+    inner.split(',').forEach(k=>{const t=k.trim();if(t)citedKeys.add(t);});
+  });
+  // build body
+  let tex=`\\documentclass[11pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage{natbib}\n\\usepackage{hyperref}\n\\title{Literature Review}\n\\date{\\today}\n\\begin{document}\n\\maketitle\n\n`;
+  D.sections.forEach(s=>{
+    tex+=`\\section{${(s.name||'').replace(/([&%#_])/g,'\\$1')}}\n\n`;
+    tex+=(D.sectionContents[s.id]||'').trim()+'\n\n';
+  });
+  tex+=`\\bibliographystyle{plainnat}\n\\bibliography{references}\n\n\\end{document}\n`;
+  // build .bib — include every paper (so unused refs are still available)
+  let bib='';
+  [...D.papers].sort((a,b)=>(a.added||0)-(b.added||0)).forEach(p=>{bib+=bibEntry(p,km[p.id])+'\n\n';});
+  // download both files
+  dl('main.tex',tex,'text/plain');
+  setTimeout(()=>dl('references.bib',bib,'text/plain'),300);
+  // show overleaf instructions
+  const used=citedKeys.size;
+  setTimeout(()=>{
+    alert('Overleaf-ready export\n\n2 files downloaded:\n • main.tex  (your review with \\cite commands)\n • references.bib  ('+D.papers.length+' papers, '+used+' currently cited)\n\nTo use in Overleaf:\n1. Go to overleaf.com → New Project → Upload Project, OR open a project and use the Upload icon.\n2. Upload BOTH main.tex and references.bib into the same project.\n3. Set the main document to main.tex and click Recompile.\n4. Citations use natbib — \\cite, \\citep, and \\citet all work.\n\nTip: in Overleaf you can also drag both files into the file panel together.');
+  },650);
+  toast('LaTeX + .bib exported ✓');
+}
+function dl(name,text,type){const blob=new Blob([text],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();URL.revokeObjectURL(url);}
 
 /* ══ PDF VIEWER + HIGHLIGHTING ══ */
 let pvPdf=null,pvScale=1.4,pvPages=0,pvPaperId=null,pvHlColor='yellow',pvMode='off',pvBytes=null,pvSuppKey=null;
